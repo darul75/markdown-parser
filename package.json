@@ -1,0 +1,36 @@
+{
+  "name": "markdown-parser",
+  "description": "Markdown github parser",
+  "version": "0.0.1",
+  "author": {
+    "name": "Julien Valéry",
+    "email": "darul75@gmail.com"
+  },
+  "homepage": "https://github.com/darul75/markdown-parser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darul75/markdown-parser.git"
+  },  
+  "keywords": [
+    "parser",
+    "github",
+    "markdown"    
+  ],
+  "main": "./src/markdown-parser",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "engines": {
+    "node": ">=0.8.x"
+  },
+  "devDependencies": {   
+    "mocha": "",
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest"    
+  },
+  "bugs": {
+    "url": "https://github.com/darul75/markdown-parser/issues"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}
