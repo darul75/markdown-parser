@@ -12,6 +12,20 @@ Here is my solution.
 
 TODO
 
+## Features
+
+Extraction of following markdown elements:
+- bold
+- code
+- heading
+- italic
+- reference (link, images)
+- lists
+- listsOrdered
+- sections
+- strikethroughs
+- tasks
+
 ## Install
 
 ~~~
@@ -105,7 +119,7 @@ parser.parse(markdownContent, function(err, result) {
     
 ## Return    
 
-~~~ json
+~~~json
 {
   "bolds": [],
   "codes": [],
