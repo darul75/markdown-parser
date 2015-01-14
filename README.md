@@ -114,9 +114,10 @@ parser.parse(markdownContent, function(err, result) {
 */
   
 });
+```
     
 ## Return    
-
+```json
 {
   "bolds": [],
   "codes": [],
@@ -129,6 +130,12 @@ parser.parse(markdownContent, function(err, result) {
   "strikethroughs": [],
   "tasks": []
 }
+```
+
+## TODO
+- [ ] Finish tests
+- [ ] Browserify
+- [ ] Missing markdown
 
 ## License
 
