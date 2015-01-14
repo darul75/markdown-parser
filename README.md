@@ -6,8 +6,6 @@ NodeJS module markdown syntax extractor.
 
 I was looking to extract links from [github markdown](https://guides.github.com/features/mastering-markdown/) readme files.
 
-Here is my solution.
-
 ## Demo
 
 TODO
