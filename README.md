@@ -33,7 +33,7 @@ npm install markdown-parser
 ## Usage
 
 ```javascript
-var parser = require('../src/markdown-parser');
+var parser = require('markdown-parser');
 
 // fetch by api or what else
 var markdownContent = ".....";
