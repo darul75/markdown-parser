@@ -8,16 +8,15 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/prism.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="javascripts/css/ng-slider.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-prettyjson/dist/ng-prettyjson.min.css">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript" src="javascripts/angular.min.js"></script>        
-    <script type="text/javascript" src="javascripts/ng-slider.min.js"></script>    
+    <script type="text/javascript" src="javascripts/angular.min.js"></script>            
     <script type="text/javascript" src="javascripts/prism.js"></script>
     <script type="text/javascript" src="javascripts/bundle.js"></script>
-
-
-    <title>Ng-slider</title>
+    <script type="text/javascript" src="bower_components/ng-prettyjson/dist/ng-prettyjson.min.js"></script>
+    
+    <title>Markdown-parser</title>
   </head>
 
   <body>
@@ -28,17 +27,17 @@
     <div id="header_wrap" class="outer">
         <header>
 
-          <h1 id="project_title">Ng-slider</h1>
-          <p>AngularJS slider control directive</p>
+          <h1 id="project_title">Markdown-parser</h1>
+          <p>Parse your favorite github markdown</p>
           <ul>
            <li>
-              <a href="https://github.com/darul75/ng-slider/zipball/master">Download <strong>Zip File</strong></a>
+              <a href="https://github.com/darul75/markdown-parser/zipball/master">Download <strong>Zip File</strong></a>
            </li>
            <li>   
-              <a href="https://github.com/darul75/ng-slider/tarball/master">Download <strong>Tar ball</strong></a>
+              <a href="https://github.com/darul75/markdown-parser/tarball/master">Download <strong>Tar ball</strong></a>
            </li>
            <li>   
-              <a id="forkme_banner" href="https://github.com/darul75/ng-slider">View on <strong>GitHub</strong></a>
+              <a id="forkme_banner" href="https://github.com/darul75/markdown-parser">View on <strong>GitHub</strong></a>
            </li>
           </ul> 
         </header>
@@ -53,193 +52,28 @@
 Just play a little bit
 
 <div ng-app="myApp" ng-controller="ctrl">
-  <h2>Single value</h2>
+  <h2>Write in box</h2>
   <div>
-    <input ng-model="value"  type="text" id="mySlider1" slider options="options" />
+    <textarea rows="20" cols="88" ng-model="value" name="markdown" ng-change="change()"></textarea>
+    <p>See result</p>
+    <pre pretty-json="json"  />
   </div>
-  <div>
-    <p>Current value is: {{value}}</p>
-  </div>
-  <h3>Code</h3>  
-  <div class="language-markup">
-    <pre><code>&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  ...</code>
-  <code class="highlight">&lt;link href="css/ng-slider.min.css" rel="stylesheet" /></code>
-  <code class="highlight">&lt;script type="javascripts/javascript" src="angular.min.js" /></code>
-  <code class="highlight">&lt;script type="javascripts/javascript" src="ng-slider.min.js" /></code>
-<code>&lt;/head>
-&lt;body>
-  ...</code>
-  <code>&lt;div>
-    &lt;input ng-model="value"  type="text" id="mySlider1" slider options="options" />
-  &lt;/div>
-  </code>
-  <code class="highlight">&lt;script>
-    function ctrl($scope) {
-      $scope.value = "50";
-      $scope.options = {       
-        from: 1,
-        to: 100,
-        step: 1,
-        dimension: " km"        
-      };
-    }   
-  &lt;/script>
-  </code>    
-<code>&lt;/body>
-&lt;/html></code></pre>
-  </div>
-  </br>
-  </br>
-  <h2>Single value with scale</h2>
-  <div>
-    <input ng-model="value2"  type="text" id="mySlider2" slider options="options2" />
-  </div>
-  <div>
-  </br>
-    <p>Current value is: {{value2}}</p>
-  </div>
-  <h3>Code</h3>  
-  <div>
-    <pre><code class="language-javascript">function ctrl($scope) {
-  $scope.value = "50";
-  $scope.options = {       
-    from: 1,
-    to: 100,
-    step: 1,
-    dimension: " km",
-    scale: [0, '|', 50, '|' , 100]        
-  };
-}</code></pre>
-  </div>
-  </br>
-  </br>
-  <h2>Double value</h2>
-  <div>
-    <input ng-model="value3"  type="text" id="mySlider3" slider options="options3" />
-  </div>
-  <div>
-    Current value is: {{value3}}
-  </div>
-  <h3>Code</h3>  
-  <div>
-    <pre><code class="language-javascript">function ctrl($scope) {
-  $scope.value = "10;15";
-  $scope.options = {       
-    from: 0,
-    to: 40,
-    step: 1,
-    dimension: " $"       
-  };
-}</code></pre>
-  </br>
-  </br>  
-  <h2>Double value with scale</h2>
-  <div>
-    <input ng-model="value4"  type="text" id="mySlider4" slider options="options4" />
-  </div>
-  <div>
-  </br>
-    <p>Current value is: {{value4}}</p>
-  </div>
-  <h3>Code</h3>  
-  <div>
-    <pre><code class="language-javascript">function ctrl($scope) {
-  $scope.value = "10;15";
-  $scope.options = {       
-    from: 0,
-    to: 40,
-    step: 1,
-    dimension: " $",
-    scale: [0, '|', 10, '|', 20, '|' , 30, '|', 40]       
-  };
-}</code></pre>
-  </div>
-  </br>
-  </br>
-  <h2>Vertical double value with scale</h2>
-  <div style="position:relative;height:300px;left:50px">
-    <input ng-model="valueV1"  type="text" id="mySliderV4" slider options="optionsV4" />
-  </div>
-  <div>
-  </br>
-    <p>Current value is: {{valueV1}}</p>
-  </div>
-  <h3>Code</h3>  
-  <div>
-    <pre><code class="language-javascript">function ctrl($scope) {
-  $scope.value = "10;15";
-  $scope.options = {       
-    from: 0,
-    to: 40,
-    step: 1,
-    dimension: " $",
-    scale: [0, '|', 10, '|', 20, '|' , 30, '|', 40],
-    vertical: true       
-  };
-}</code></pre>
-  </br>
-  </br>
 </div>
 
 
   <script type="text/javascript"> 
 
-    var app = angular.module('myApp', ['ngSlider']);  
-
-    var through = require('through');      
+    var app = angular.module('myApp', ['ngPrettyJson']);  
 
     function ctrl($scope, $filter) {      
-      $scope.value = "50";
-      $scope.value2 = "30";
-      $scope.value3 = "10;15";      
-      $scope.value4 = "10;15";
-      $scope.valueV1 = "10;15";
+      $scope.value = "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com) \n\nSometimes you want numbered lists: \n\n1. One\n2. Two\n3. Three \n\nSometimes you want bullet points: \n\n* Start a line with a star\n* Profit!\n\nAnother bold **yeah**\n\nAlternatively,\n\n- Dashes work just as well\n\n- And if you have sub points, put two spaces before the dash or star:\n  - Like this\n  - And this\n\nIf you want to embed images, this is how you do it:\n![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)\n\n# Structured documents\n\nSometimes it's useful to have different levels of headings to structure your documents. Start lines with a `#` to create headings. Multiple `##` in a row denote smaller heading sizes.\n\n### This is a third-tier heading\n\nYou can use  one `#` all the way up to `######` six for different heading sizes.\n\nIf you'd like to quote someone, use the > character before the line:\n> Coffee. The finest organic suspension ever devised... I beat the Borg with it.\n> - Captain Janeway\n\nThere are many different ways to style code with GitHub's markdown. If you have inline code blocks, wrap them in backticks: `var example = true`.  If you've got a longer block of code, you can indent with four spaces:\n\n    if (isAwesome){\n      return true\n    }\n\nGitHub also supports something called code fencing, which allows for multiple lines without indentation:\n\n```\nif (isAwesome){\n  return true\n}\n```\n\nAnd if you'd like to use syntax highlighting, include the language:\n\n```javascript\nif (isAwesome){\n  return true\n}\n```\n\nWhy\n-------------\n\nGitHub supports many extras in Markdown that help you reference and link to people. If you ever want to direct a comment at someone, you can prefix their name with an @ symbol: Hey @kneath — love your sweater!\n\nBut I have to admit, tasks lists are my favorite:\n\n- [x] This is a complete item\n- [ ] This is an incomplete item\n\nAnd, of course emoji! :sparkles: :camel: :boom:\n\nBecause\n-------------\n~~this~~";
+      $scope.json = {};
+      $scope.json = markdownparser.parse($scope.value);
 
-      $scope.options = {       
-        from: 1,
-        to: 100,
-        step: 1,
-        dimension: " km"        
+      $scope.change = function() {        
+        $scope.json = markdownparser.parse($scope.value);
       };
-
-      $scope.options2 = {       
-        from: 1,
-        to: 100,
-        step: 1,
-        dimension: " km",
-        scale: [0, '|', 50, '|' , 100]
-      };
-
-      $scope.options3 = {        
-        from: 0,
-        to: 40,
-        step: 1,
-        dimension: " $"
-      };
-
-      $scope.options4 = {        
-        from: 0,
-        to: 40,
-        step: 1,
-        dimension: " $",
-        scale: [0, '|', 10, '|', 20, '|' , 30, '|', 40]      
-      };
-
-      $scope.optionsV4 = {        
-        from: 0,
-        to: 40,
-        step: 1,
-        dimension: " $",
-        scale: [0, '|', 10, '|', 20, '|' , 30, '|', 40],
-        vertical: true      
-      };
-
-      $scope.$watch('value', function(value) {
-          //console.log(value);
-      });   
+     
     }
 
   </script>
@@ -263,7 +97,7 @@ Just play a little bit
    <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer>
-        <p class="copyright">Ng-slider maintained by <a href="https://github.com/darul75">darul75</a></p>
+        <p class="copyright">Markdown-parser maintained by <a href="https://github.com/darul75">darul75</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a> — Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
       </footer>
     </div>       
