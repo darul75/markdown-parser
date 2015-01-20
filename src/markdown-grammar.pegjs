@@ -74,7 +74,7 @@ start
 }
 
 Markdown
-  = EndOfLine / Heading / Bold / Italic / Strikethrough / Tasks / Lists / OrderedLists / InlineCode / MultiplelLineCode / References / Section / Others 
+  = EndOfLine / Heading / Bold / Italic / Strikethrough / Tasks / Lists / OrderedLists / InlineCode / MultiplelLineCode / References / Section / Others / Space 
 
 Digit1_9      = [1-9]
 EOF = !.
