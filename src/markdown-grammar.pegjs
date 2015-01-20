@@ -90,7 +90,7 @@ AnyText2 = [\x20-\x40] / [\x41-\x60] / [\x61-\xFFFF] / nonascii
 SectionText = [-]+ / ([\x20-\x40] / [\x41-\x60] / [\x61-\x7A] / nonascii)
 
 Others
-  = text:AnyText2+ Space? {
+  = Space? text:AnyText2+ Space? {
     return {
      others: text.join("")
     }
