@@ -137,6 +137,10 @@ parser.parse(markdownContent, function(err, result) {
 - [ ] Browserify
 - [ ] Missing markdown
 
+## Metrics
+
+[![NPM](https://nodei.co/npm/markdown-parser.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/markdown-parser/)
+
 ## License
 
 The MIT License (MIT)
