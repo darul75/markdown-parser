@@ -63,7 +63,7 @@ http://www.utf8-chartable.de/unicode-utf8-table.pl
  }
 
  function isImage(link) {
-   return link.indexOf(".png") > 0 || link.indexOf(".gif") > 0 || link.indexOf(".jpg") > 0 || link.indexOf(".jpeg") > 0;
+   return link.indexOf(".png") > 0 || link.indexOf(".gif") > 0 || link.indexOf(".jpg") > 0 || link.indexOf(".jpeg") > 0 || link.indexOf(".svg") > 0;
  }
 
 }
@@ -74,7 +74,7 @@ start
 }
 
 Markdown
-  = EndOfLine / Heading / Bold / Italic / Strikethrough / Tasks / Lists / OrderedLists / InlineCode / MultiplelLineCode / References / Section / Others / Space 
+  = EndOfLine / Heading / Bold / Italic / Strikethrough / Tasks / Lists / OrderedLists / InlineCode / MultiplelLineCode / References / ReferencesEmpty / Section / Others / Space 
 
 Digit1_9      = [1-9]
 EOF = !.
@@ -193,11 +193,26 @@ MultiplelLineCode
 LinkTitle
   = [\x5B] text:LinkText+ [\x5D] {return text.join("")}
 
+LinkTitleEmpty
+  = [\x5B] [\x5D] {return ""}
+
 LinkRef
   = [\x28] text:AnyText+ [\x29] {return text.join("")}
 
 References
   = (AnyText+ / "") title:LinkTitle href:LinkRef Space? {
+     return {
+      references: {
+        title: title,
+        href: href,
+        image: isImage(href)
+      }
+     }
+    }
+
+/* patch empty link name */
+ReferencesEmpty
+  = (AnyText+ / "") title:LinkTitleEmpty href:LinkRef Space? {
      return {
       references: {
         title: title,

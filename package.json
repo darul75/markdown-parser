@@ -1,7 +1,7 @@
 {
   "name": "markdown-parser",
   "description": "Markdown github parser",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Julien Valéry",
     "email": "darul75@gmail.com"
@@ -14,7 +14,7 @@
   "keywords": [
     "parser",
     "github",
-    "markdown"    
+    "markdown"
   ],
   "main": "./src/markdown-parser",
   "scripts": {
