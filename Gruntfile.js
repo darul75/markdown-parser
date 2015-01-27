@@ -29,5 +29,5 @@ module.exports = function(grunt) {
 
   // TASK REGISTER
   //grunt.registerTask('default', ['jshint', 'uglify:task1']);
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', []);
 };

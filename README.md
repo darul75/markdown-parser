@@ -33,7 +33,12 @@ npm install markdown-parser
 ## Usage
 
 ```javascript
-var parser = require('markdown-parser');
+var Parser = require('markdown-parser');
+
+var parser = new Parser();
+
+// options repository url
+// var parser = new Parser({html_url: "https://github.com/darul75/markdown-parser"});
 
 // fetch by api or what else
 var markdownContent = ".....";
@@ -131,6 +136,10 @@ parser.parse(markdownContent, function(err, result) {
   "tasks": []
 }
 ```
+
+### Options
+
+* `html_url`: repository url, used for link references, ex: "https://github.com/darul75/markdown-parser"
 
 ## TODO
 - [ ] Finish tests
