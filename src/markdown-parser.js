@@ -1,4 +1,6 @@
 // node http api
+// pegjs  -e markdownparser markdown-grammar.pegjs parser-browser.js
+// pegjs markdown-grammar.pegjs parser.js
 var pegparser = require('./parser.js');
 
 function MardownParser() {
