@@ -2,7 +2,7 @@
 var Parser = require('../src/markdown-parser');
 
 var parser = new Parser();
-var parserOptions = new Parser({html_url: "https://github.com/darul75/markdown-parser"});
+var parserOptions = new Parser();
 
 var assert = require("assert");
 
@@ -44,25 +44,32 @@ describe('tests', function() {
         done();
       });
     });
-    it('images full', function(done) {
+    it('images full', function(done) {      
       parserOptions.parse("[google](http://www.google.com)", function(err, result) {                
         assert.equal(result.references.length, 1);
         done();
       });
     });
     it('images relative', function(done) {
+      parserOptions.options = {html_url: "https://github.com/darul75/markdown-parser"};
       parserOptions.parse("[zoubida](images/zoubida.png)", function(err, result) {                
         assert.equal(result.references.length, 1);
-        assert.equal(result.references[0].href, 'https://github.com/darul75/markdown-parser/images/zoubida.png');
-        done();
+        assert.equal(result.references[0].href, parserOptions.options.html_url+'/images/zoubida.png');
+        parserOptions.options.html_url = "https://github.com/CMBJS/NodeBots";
+        var res = parserOptions.parse("![Alt text](poster.jpg)", function(err, result) {
+          assert.equal(result.references.length, 1);
+          assert.equal(result.references[0].href, parserOptions.options.html_url+'/poster.jpg');
+          done();
+        });
       });
     });
     it('images relative not needed', function(done) {
-      parserOptions.parse("[zoubida](http://www.google.com/images/zoubida.png)", function(err, result) {                
+      parserOptions.options = {html_url: "https://github.com/darul75/markdown-parser"};
+      parserOptions.parse("[zoubida](http://www.google.com/images/zoubida.png)", function(err, result) {
         assert.equal(result.references.length, 1);
         assert.equal(result.references[0].href, 'http://www.google.com/images/zoubida.png');
         done();
-      });
+      });            
     });
 
   });

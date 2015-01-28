@@ -5,8 +5,9 @@ var pegparser = require('./parser.js');
 var pat = /^https?:\/\//i;
 
 
-function MarkdownParser(options) {
-  this.options = options || {};
+function MarkdownParser(options) {  
+  Object.defineProperty(this, 'options', {writable: true, value: options || {}});
+  
   this.init();
 }
 
