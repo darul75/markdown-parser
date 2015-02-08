@@ -23,7 +23,7 @@ MarkdownParser.prototype.parse = function(markdown, next) {
     var prefix = this.options.html_url;
     result.references.forEach(function(elt) {
       if (!pat.test(elt.href)) {
-        elt.href = prefix + '/' + elt.href;
+        elt.href = prefix + '/blob/master/' + elt.href;
       }
     }); 
   }
