@@ -14,6 +14,12 @@ describe('tests', function() {
         done();
       });
     });
+    it('code', function(done) {
+      parser.parse("```js \n var a; \n ```", function(err, result) {                
+        assert.equal(result.codes.length, 1);
+        done();
+      });
+    });
     it('headings', function(done) {
       parser.parse("#header1 \n#header2", function(err, result) {                
         assert.equal(result.headings.length, 2);
@@ -52,13 +58,13 @@ describe('tests', function() {
     });
     it('images relative', function(done) {
       parserOptions.options = {html_url: "https://github.com/darul75/markdown-parser"};
-      parserOptions.parse("[zoubida](images/zoubida.png)", function(err, result) {                
+      parserOptions.parse("[zoubida](./images/zoubida.png)", function(err, result) {                
         assert.equal(result.references.length, 1);
-        assert.equal(result.references[0].href, parserOptions.options.html_url+'/images/zoubida.png');
+        assert.equal(result.references[0].href, parserOptions.options.html_url+'/blob/master/images/zoubida.png');
         parserOptions.options.html_url = "https://github.com/CMBJS/NodeBots";
         var res = parserOptions.parse("![Alt text](poster.jpg)", function(err, result) {
           assert.equal(result.references.length, 1);
-          assert.equal(result.references[0].href, parserOptions.options.html_url+'/poster.jpg');
+          assert.equal(result.references[0].href, parserOptions.options.html_url+'/blob/master/poster.jpg');
           done();
         });
       });

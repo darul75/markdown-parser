@@ -167,7 +167,7 @@ OrderedLists
 }
 
 Type
-  = "html" / "javascript"
+  = "bash" "c" / "cpp" / "html" / "javascript" / "js" / "json"/ "java" / "ruby"
 
 InlineCode
   = AnyText [\x60] text:AnyText+ [\x60] AnyText+ Space? {return text.join("")}
@@ -175,14 +175,8 @@ InlineCode
 LineCode
   = text:CodeText+ {return text.join("").trim()}
 
-TypeHtml
-  = "html"
-
-TypeJS
-  = "javascript"
-
 MultiplelLineCode
-  = "```" type:(TypeJS / TypeHtml)? Space? code:LineCode+ "```" Space? {
+  = "`"+ ' '? type:(Type)? Space? code:LineCode+ "`"+ Space? {
   return {
     code: code,
     type: type

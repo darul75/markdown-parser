@@ -1,4 +1,3 @@
-// node http api
 // pegjs  -e markdownparser markdown-grammar.pegjs parser-browser.js
 // pegjs markdown-grammar.pegjs parser.js
 var pegparser = require('./parser.js');
@@ -23,7 +22,7 @@ MarkdownParser.prototype.parse = function(markdown, next) {
     var prefix = this.options.html_url;
     result.references.forEach(function(elt) {
       if (!pat.test(elt.href)) {
-        elt.href = prefix + '/blob/master/' + elt.href;
+        elt.href = prefix + '/blob/master/' + elt.href.replace('./', '');
       }
     }); 
   }
